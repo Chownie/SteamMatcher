@@ -56,7 +56,7 @@ func TestLoadHome(val string) string {
 
 func IndexLoad(val string) string {
 	content := Rendermustache(FORM, &map[string]string{})
-	return content
+	return Rendermustache(FRAME, &map[string]string{"content": content})
 }
 
 func CompareNames(ctx *web.Context, val string) string {
