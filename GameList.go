@@ -86,10 +86,8 @@ func CompareNames(ctx *web.Context, val string) string {
 
 func FindDuplicates(PersonA *Person, PersonB *Person) *[]Game {
 	CommonList := []Game{}
-	GamesA := PersonA.Games
-	GamesB := PersonB.Games
-	for KeyA, valA := range GamesA {
-		for KeyB, valB := range GamesB {
+	for KeyA, valA := range PersonA.Games {
+		for KeyB, valB := range PersonB.Games {
 			if valA.Name == valB.Name {
 				CommonList = append(CommonList, valA)
 				PersonA.Games = DelIndex(PersonA.Games, KeyA)
