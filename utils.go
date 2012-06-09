@@ -39,9 +39,9 @@ func (pe *Person) GetXML(url []string) {
 }
 
 func (pe *Person) GetData(name string) {
-	pe.Name = name
 	pe.GetXML([]string{"http://steamcommunity.com/id/", name, "/games?xml=1"})
 	pe.GetXML([]string{"http://steamcommunity.com/id/", name, "?xml=1"})
+	pe.Name = name
 }
 
 func Loadmustache(filename string, args *map[string]string) string {
