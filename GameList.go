@@ -80,7 +80,8 @@ func CompareNames(ctx *web.Context, val string) string {
 		listBinfo := map[string]string{"logo": keys.Logo, "gameurl": keys.Storelink, "gamename": keys.Name}
 		listB += Rendermustache(GAME, &listBinfo)
 	}
-	content := Rendermustache(RESULT, &map[string]string{"colA": dupelist + "<hr />" + listA, "colB": dupelist + "<hr />" + listB})
+	content := Rendermustache(RESULT, &map[string]string{"colA": personA.SteamID + "<hr />" + dupelist + "<hr />" + listA,
+		"colB": personB.SteamID + "<hr />" + dupelist + "<hr />" + listB})
 	return Rendermustache(FRAME, &map[string]string{"content": content})
 }
 
