@@ -48,17 +48,24 @@ a:visited {
 	text-shadow: 0px 2px 3px #111; 
 	text-decoration: none;
 }
+#dupes {
+    float: left;
+	width:33%;
+}
 #columnA {
 	float: left;
-	width:50%;
+	width:33%;
 }
 #columnB {
 	float: right;
-	width:50%;
+	width:33%;
 	text-align:right;
 }
+img {
+    float:left;
+    margin:5px;
+}
 .common {
-<<<<<<< HEAD
 background: -moz-linear-gradient(top, rgba(207, 181, 59,0.7) 0%, rgba(207, 181, 59,0.2) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(207, 181, 59,0.7)), color-stop(100%,rgba(207, 181, 59,0.2))); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top, rgba(207, 181, 59,0.7) 0%,rgba(207, 181, 59,0.2) 100%); /* Chrome10+,Safari5.1+ */
