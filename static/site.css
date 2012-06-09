@@ -1,0 +1,12 @@
+#content {
+	width: 50%;
+	margin: 0px auto;
+}
+#columnA {
+	float: left;
+	width:24%;
+}
+#columnB {
+	float: right;
+	width:24%;
+}
