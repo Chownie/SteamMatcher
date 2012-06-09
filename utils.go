@@ -11,6 +11,7 @@ import (
 )
 
 type Person struct {
+	Name    string
 	SteamID string `xml:"steamID"`
 	Avatar  string `xml:"avatarMedium"`
 	Games   []Game `xml:"games>game"`
@@ -38,6 +39,7 @@ func (pe *Person) GetXML(url []string) {
 }
 
 func (pe *Person) GetData(name string) {
+	pe.Name = name
 	pe.GetXML([]string{"http://steamcommunity.com/id/", name, "/games?xml=1"})
 	pe.GetXML([]string{"http://steamcommunity.com/id/", name, "?xml=1"})
 }

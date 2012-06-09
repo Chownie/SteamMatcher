@@ -1,12 +1,62 @@
 #content {
-	width: 50%;
+	background-color:rgb(66, 66, 66);
+	font: 15px Tahoma, Helvetica, Arial, Sans-Serif, monospace;
+	overflow-x:auto;
+	line-height: 20px;
+	width:50%;
+	display: block;
 	margin: 0px auto;
+	padding-left:2%;
+	padding-right:2%;
+	padding-bottom:2%;
+	padding-top:2%;
+}
+hr {
+	border: 0;
+	height: 1px;
+	background: #333;
+	background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+body {
+	background-color:rgb(44,44,44);
+	color:#EEE;
+	font: 12px 'Lucida Grande', Arial, sans-serif;
+}
+label {
+	float: left;
+	width: 120px;
+	font-weight: bold;
+}
+input {
+	width: 180px;
+	margin-bottom: 5px;
+}
+input.title {
+	width: 40%;
+	margin-bottom:5px;
+}
+a:link {
+	color: #AAA; 
+	text-shadow: 0px 2px 3px #111; 
+	text-decoration: none;
+}
+a:visited {
+	color: #AAA; 
+	text-shadow: 0px 2px 3px #111; 
+	text-decoration: none;
 }
 #columnA {
 	float: left;
-	width:24%;
+	width:50%;
 }
 #columnB {
 	float: right;
-	width:24%;
+	width:50%;
+	text-align:right;
+}
+.common {
+	background-color:#ff9900;
 }

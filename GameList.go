@@ -29,6 +29,8 @@ const FORM = `<form method="GET" action="/match/">
 </form>
 `
 
+const PREPROFILE = "http://steamcommunity.com/id/"
+
 const RESULT = `
 			<div id="columnA">
 				{{{colA}}}
@@ -80,8 +82,10 @@ func CompareNames(ctx *web.Context, val string) string {
 		listBinfo := map[string]string{"logo": keys.Logo, "gameurl": keys.Storelink, "gamename": keys.Name}
 		listB += Rendermustache(GAME, &listBinfo)
 	}
-	content := Rendermustache(RESULT, &map[string]string{"colA": personA.SteamID + "<hr />" + dupelist + "<hr />" + listA,
-		"colB": personB.SteamID + "<hr />" + dupelist + "<hr />" + listB})
+	userA := Rendermustache(GAME, &map[string]string{"logo": personA.Avatar, "gamename": personA.Name, "gameurl": PREPROFILE + personA.SteamID})
+	userB := Rendermustache(GAME, &map[string]string{"logo": personB.Avatar, "gamename": personB.Name, "gameurl": PREPROFILE + personB.SteamID})
+	content := Rendermustache(RESULT, &map[string]string{"colA": userA + "<hr />" + dupelist + "<hr />" + listA,
+		"colB": userB + "<hr />" + dupelist + "<hr />" + listB})
 	return Rendermustache(FRAME, &map[string]string{"content": content})
 }
 
