@@ -35,6 +35,9 @@ const RESULT = `
 			<div id="columnA">
 				{{{colA}}}
 			</div>
+			<div id="dupes">
+				{{{dupes}}}
+			</div>
 			<div id="columnB">
 				{{{colB}}}
 			</div>`
@@ -82,13 +85,15 @@ func CompareNames(ctx *web.Context, val string) string {
 		listBinfo := map[string]string{"logo": keys.Logo, "gameurl": keys.Storelink, "gamename": keys.Name}
 		listB += Rendermustache(GAME, &listBinfo)
 	}
+
+	dupeSlot := Rendermustache(GAME, &map[string]string{"logo": "/static/steam.png", "gamename": "Games in Common", "common": "duplicate"}
 	userA := Rendermustache(GAME, &map[string]string{"logo": personA.Avatar,
 		"gamename": personA.SteamID, "gameurl": PREPROFILE + personA.Name, "common": "user"})
 
 	userB := Rendermustache(GAME, &map[string]string{"logo": personB.Avatar,
 		"gamename": personB.SteamID, "gameurl": PREPROFILE + personB.Name, "common": "user"})
-	content := Rendermustache(RESULT, &map[string]string{"colA": userA + "<hr />" + dupelist + "<hr />" + listA,
-		"colB": userB + "<hr />" + dupelist + "<hr />" + listB})
+	content := Rendermustache(RESULT, &map[string]string{"colA": userA + "<hr />" + listA,
+		"colB": userB + "<hr />" + listB, "dupes": dupeSlot + <hr /> + dupes})
 	return Rendermustache(FRAME, &map[string]string{"content": content})
 }
 
