@@ -22,7 +22,7 @@ const FRAME = `<!DOCTYPE HTML>
 	</body>
 </html>`
 
-const FORM = `<form method="POST" action="/">
+const FORM = `<form method="GET" action="/match/">
 	<input type="text" name="PersonA" />
 	<input type="text" name="PersonB" /><br />
 	<input type="submit" value="Go!" />

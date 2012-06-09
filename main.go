@@ -6,7 +6,7 @@ import (
 
 func main() {
 	web.Get("/()", IndexLoad)
-	web.Post("/()", CompareNames)
+	web.Get("/match/()", CompareNames)
 	//web.Get("/test/(.*)", TestLoadHome)
 	web.Get("/static/(.*)", Sendstatic)
 	//STARTING PROCEDURE
