@@ -84,16 +84,29 @@ func CompareNames(ctx *web.Context, val string) string {
 	return Rendermustache(FRAME, &map[string]string{"content": content})
 }
 
-func FindDuplicates(PersonA *Person, PersonB *Person) *[]Game {
-	CommonList := []Game{}
-	for KeyA, valA := range PersonA.Games {
-		for KeyB, valB := range PersonB.Games {
-			if valA.Name == valB.Name {
-				CommonList = append(CommonList, valA)
-				PersonA.Games = DelIndex(PersonA.Games, KeyA)
-				PersonB.Games = DelIndex(PersonB.Games, KeyB)
+func FindDuplicates(personA, personB *Person) *[]Game {
+	common := []Game{}
+	i := 0
+	ii := 0
+	for ii < len(personA.Games) {
+		j := 0
+		jj := 0
+		for jj < len(personB.Games) {
+			if personA.Games[ii].Name != personB.Games[jj].Name {
+				personB.Games[j] = personB.Games[jj]
+				j += 1
 			}
+			jj += 1
 		}
+		personB.Games = personB.Games[:j]
+		if j == jj {
+			personA.Games[i] = personA.Games[ii]
+			i += 1
+		} else {
+			common = append(common, personA.Games[ii])
+		}
+		ii += 1
 	}
-	return &CommonList
+	personA.Games = personA.Games[:i]
+	return &common
 }
